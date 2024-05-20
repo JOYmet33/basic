@@ -45,3 +45,13 @@ const plusName = users.map((user) => {
   };
 });
 console.log(plusName);
+
+// 문제 6)
+let newUsers = [...users];
+newUsers.sort((a, b) => {
+  return b.age - a.age;
+});
+console.log(users);
+console.log(newUsers);
+
+// 문제 7)
