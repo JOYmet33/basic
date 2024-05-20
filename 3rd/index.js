@@ -15,6 +15,10 @@ users.forEach((user) => {
   userList.insertAdjacentHTML("beforeend", template);
 });
 
-// 문제3)
+// 문제 3)
 const findGirl = users.find((user) => user.gender === "여");
 console.log(findGirl);
+
+// 문제 4)
+const findBoys = users.filter((user) => user.gender === "남");
+console.log(findBoys);
