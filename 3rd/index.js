@@ -53,5 +53,3 @@ newUsers.sort((a, b) => {
 });
 console.log(users);
 console.log(newUsers);
-
-// 문제 7)
