@@ -1,0 +1,11 @@
+.box {
+  height: 100px;
+  width: 100px;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+button {
+  color: red;
+}
