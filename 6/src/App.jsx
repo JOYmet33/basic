@@ -5,7 +5,8 @@ function App() {
   const [todos, setTodos] = useState([
     {
       id: Date.now(),
-      todo: "",
+      text: "",
+      isDone: false,
     },
   ]);
 
@@ -17,21 +18,23 @@ function App() {
 
     // truth한 value는 저장하기 : 2단계
     // 1. 새로운 객체 만들기 : const newTodo
-    const newTodo = (value) => {
-      return {
-        id: Date.now(),
-        todo: value,
-      };
+    const newTodo = {
+      id: Date.now(),
+      text: value,
+      isDone: false,
     };
+
     // 2. 기존 배열에 추가하기 : setTodos(), ...(스프레드 오퍼레이터)
     setTodos([newTodo, ...todos]);
     setValue("");
-    console.log(todos);
   };
 
   return (
     <div>
       <h1>Todo List</h1>
+      {/* <form> 기능
+      1. <form>태그 onSubmit 바로 입력
+      2. <button>태그 type="submit" */}
       <form onSubmit={handleSubmit}>
         <input
           value={value}
@@ -42,11 +45,21 @@ function App() {
         <button type="submit">추가</button>
       </form>
       <ul>
-        <li>
-          <span>베이직반 숙제하기</span>
-          <button>완료</button>
-          <button>삭제</button>
-        </li>
+        {/* <li>태그를 map함수로 찍어내기*/}
+        {todos.map((todo) => {
+          return (
+            <li
+              key={todo.id}
+              style={{
+                textDecoration: todo.isDone ? "line-through" : "none",
+              }}
+            >
+              <span>{`${todo.text}`}</span>
+              <button>{todo.isDone ? "취소" : "완료"}</button>
+              <button>삭제</button>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
